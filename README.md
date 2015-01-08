@@ -12,7 +12,7 @@ tasks.set('stage 1', function(done){
 });
 
 tasks.set('stage 2', ['stage 1'], function(result, done){
-  // requiring another task adjusts signature ^
+  // receive prior result by providing argument ^
   setTimeout(function(){
     done(result * 2);
   }, 2000);
