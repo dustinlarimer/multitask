@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dustin Larimer <dustin@keen.io> (https://keen.io/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^2.6.2"
+  }
 }
