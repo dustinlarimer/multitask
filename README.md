@@ -1,1 +1,46 @@
 # multitask
+
+Example implementation
+
+```javascript
+var tasks = require('./');
+
+tasks.set('stage 1', function(done){
+  setTimeout(function(){
+    done(1);
+  }, 1000);
+});
+
+tasks.set('stage 2', ['stage 1'], function(result, done){
+  // requiring another task adjusts signature ^
+  setTimeout(function(){
+    done(result * 2);
+  }, 2000);
+});
+
+mtask.set('report', ['stage 2', 'stage 1'], function(result, done){
+  done( result[0] + result[1] );
+});
+
+function init(){
+  mtask
+    .run(['report', undefined, 'also undefined', 'stage 1', 'stage 2'])
+    .then(function(result){
+      console.log('done', result);
+    })
+    .catch(function(err){
+      console.log('err', err);
+    });
+}
+
+init();
+setInterval(init, 5000);
+```
+
+Output
+
+1. 'stage 1' task begins (1000ms pause)
+2. 'stage 2' task begins (2000ms pause)
+3. 'report' task begins
+4. runner exits with arguments `{ '0': [ 2, 1 ], '1': [Function] }`
+5. runner logs 'done' with arguments `{ '0': [ 3, undefined, 'also undefined', 1, 2 ] }`
