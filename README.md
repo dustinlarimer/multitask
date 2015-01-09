@@ -24,6 +24,7 @@ mtask.set('report', ['stage 2', 'stage 1'], function(result, done){
 
 function init(){
   mtask
+    .reset()
     .run(['report', undefined, 'also undefined', 'stage 1', 'stage 2'])
     .then(function(result){
       console.log('done', result);
