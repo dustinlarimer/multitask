@@ -14,12 +14,12 @@ multitask
   })
   .set('next task', ['list', 'of', 'dependent', 'tasks'], function(res, done){
     // notice this task depends on others ^
-    // insert an argument to get an array of values returned by them ^
+    // insert an argument to get an array of values returned by them ^ ...
     done({ task_count: res.length });
   })
-  .set('task three', ['first task', 'next task', 'both ignored'], function(done){
-    // or omit that extra argument if the results of dependent tasks are not actionable or necessary
-    // the last argument will always be a `done` function.. or whatever you choose to call it :)
+  .set('task three', ['first task', 'next task'], function(done){
+    // ... or omit that extra argument if the results of dependent tasks are not needed
+    // the -last- argument will always be a `done` function
   });
 
 ```
