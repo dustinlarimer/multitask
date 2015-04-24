@@ -21,7 +21,6 @@ multitask
     // ... or omit that extra argument if the results of dependent tasks are not needed
     // the -last- argument will always be a `done` function
   });
-
 ```
 
 ### Run tasks and handle responses

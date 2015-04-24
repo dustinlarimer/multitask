@@ -1,11 +1,8 @@
 {
   "name": "multitask",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Asynchronous task-runner",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Dustin Larimer <dustin@keen.io> (https://keen.io/)",
   "repository": "https://github.com/dustinlarimer/multitask",
   "license": "MIT",
